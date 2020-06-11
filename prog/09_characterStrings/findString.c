@@ -6,17 +6,15 @@ int findString(const char s[], const char sub[]) {
     j = 0;
 
   while (s[i] != '\0') {
-    if (s[i] == sub[j]) {
-      while (sub[j] == s[i + j]) {
-        if (sub[j] == '\0') {
-          return i;
-        }
+    while (s[i + j] == sub[j]) {
+      if (sub[i + j] == '\0') {
+        return i;
+      } else {
         j++;
       }
-    } else {
-      i++;
-      j = 0;
     }
+    i++;
+    j = 0;
   }
   return -1;
 }
